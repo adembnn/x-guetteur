@@ -35,7 +35,7 @@ INTERDITS = [r"\bmate\b", r"major ?pr[ée]pa", r"square management", r"\bsquare\
 
 EMOJI = re.compile("[\U0001F300-\U0001FAFF☀-➿⭐✅❌]")
 LIEN = re.compile(r"https?://|www\.|\b\w+\.(com|fr|io|ai|app|dev)\b", re.I)
-DEUX_BRANCHES = re.compile(r"\bou (un|une|le|la|les|des|du|vous|tu|plutôt|alors|bien|juste|sur|en|par|avec|pas)\b[^?.!\n]*\?", re.I)
+DEUX_BRANCHES = re.compile(r"\bou (un|une|le|la|les|des|du|vous|tu|plutôt|alors|bien|juste|sur|en|par|avec|pas|c.est|si|quand|pour|t.as|tu)\b[^?.!\n]*\?", re.I)
 
 MOTS_VIDES = set("""alors aussi autre avant avec avoir bien c'est cela cette comme dans depuis donc elle elles encore entre être fait faire
 font genre juste leur leurs mais même moins notre nous parce pendant peut plus pour pourquoi quand quel quelle quels sans selon sont sous
