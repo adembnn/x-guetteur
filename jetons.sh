@@ -12,9 +12,11 @@ lire() { # lit un jeton collé, même sur plusieurs lignes, jusqu'à une ligne v
 echo "== 1/2 Jeton Claude"
 echo "   Une page s'ouvre pour te connecter, puis le jeton s'affiche. Copie TOUT le bloc (même s'il fait 3 lignes)."
 claude setup-token || true
-clear
-echo "   Colle le jeton, puis appuie 2 fois sur Entrée (rien ne s'affiche, c'est normal) :"
+echo
+echo "   ^^^ Le jeton est juste au-dessus (sk-ant-oat01-..., parfois sur 3 lignes). Copie tout le bloc."
+echo "   Colle-le ici, puis appuie 2 fois sur Entrée (rien ne s'affiche, c'est normal) :"
 CT=$(lire)
+clear
 case "$CT" in sk-ant-oat*) ;; *) echo "   Ça ne ressemble pas à un jeton Claude (il commence par sk-ant-oat). Relance le script."; exit 1;; esac
 printf %s "$CT" | gh secret set CLAUDE_CODE_OAUTH_TOKEN -R "$REPO"; echo "   jeton Claude enregistré (${#CT} caractères)"; unset CT
 
