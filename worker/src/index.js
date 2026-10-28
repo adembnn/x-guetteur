@@ -13,7 +13,7 @@ const MIN = 60_000;
 // ---------- petits outils ----------
 const now = () => Date.now();
 const heureParis = (t = now()) =>
-  Number(new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", hour: "numeric", hour12: false }).format(t));
+  parseInt(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hourCycle: "h23" }).format(t), 10) % 24;
 const jourParis = (t = now()) =>
   new Intl.DateTimeFormat("fr-CA", { timeZone: "Europe/Paris" }).format(t); // AAAA-MM-JJ
 const debutJour = (t = now()) => {
