@@ -52,8 +52,9 @@ async function dire(env, texte, extra = {}) {
 
 // ---------- 1-3. la ronde ----------
 // « Démarre » : moins de 15 min, et déjà de l'élan. Seuils de départ, réglés ensuite par la rétro avec la table `vus`.
+const THEME = /\b(ia|ai|gpt|chatgpt|claude|gemini|grok|mistral|llm|agents?|agentique|openai|anthropic|google|apple|meta|nvidia|code|coder|codeur|dev|développeur|saas|app|startup|no-?code|n8n|cursor|automatis\w*|prompt|modèles?|api|bot|tech|build|produit|mvp|hackathon|vibe|seo|data|robot\w*|fable|astra|genie|carbon|macbook|iphone|logiciel|outil\w*)\b/i;
 function estChaud(p, ageMin, followers) {
-  if (ageMin > 15 || followers < 300) return false;
+  if (ageMin > 15 || followers < 300 || !THEME.test(p.text || "")) return false;
   const vues = p.views || 0, likes = p.likes || 0, rep = p.replies || 0;
   const vitesse = vues / Math.max(ageMin, 1);
   return (vitesse >= 15 && vues >= 40) || likes >= 3 || rep >= 2;
@@ -115,6 +116,7 @@ async function lancerRedaction(env, postId, alertId) {
     headers: { ...UA, Accept: "application/vnd.github+json", Authorization: `Bearer ${env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" },
     body: JSON.stringify({ ref: "main", inputs: { post_id: String(postId), alert_id: String(alertId) } }),
   });
+  if (r.status !== 204) await setCfg(env, "derniere_erreur_gh", `${r.status} ${(await r.text()).slice(0, 300)}`);
   return r.status === 204;
 }
 
@@ -286,6 +288,7 @@ async function api(req, env) {
     return Response.json({ ok: await lancerRedaction(env, p.id, r.id), alert_id: r.id });
   }
   if (url.pathname === "/bilan") return new Response(await bilan(env));
+  if (url.pathname === "/sante") return Response.json({ chat: !!(await getCfg(env, "chat_id")), pause: await getCfg(env, "pause", "0"), erreur_gh: await getCfg(env, "derniere_erreur_gh"), cibles: (await env.DB.prepare("SELECT COUNT(*) n FROM cibles WHERE actif=1").first()).n });
   return new Response("guetteur-x", { status: 200 });
 }
 

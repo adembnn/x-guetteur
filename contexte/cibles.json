@@ -1,0 +1,512 @@
+[
+ {
+  "handle": "nb4ld",
+  "followers": 11902,
+  "pct_fr": 100,
+  "posts_7j": 9,
+  "mediane_vues": 14893,
+  "repond_reponses": true,
+  "theme": "IA, droit, tech",
+  "priorite": 1
+ },
+ {
+  "handle": "Neolectron",
+  "followers": 12830,
+  "pct_fr": 100,
+  "posts_7j": 4,
+  "mediane_vues": 7948,
+  "repond_reponses": true,
+  "theme": "dev TypeScript, outils IA",
+  "priorite": 1
+ },
+ {
+  "handle": "MennelDev",
+  "followers": 2880,
+  "pct_fr": 100,
+  "posts_7j": 12,
+  "mediane_vues": 4719,
+  "repond_reponses": true,
+  "theme": "apps mobiles, indie hacker",
+  "priorite": 1
+ },
+ {
+  "handle": "amine_prcs",
+  "followers": 4317,
+  "pct_fr": 100,
+  "posts_7j": 10,
+  "mediane_vues": 4411,
+  "repond_reponses": true,
+  "theme": "apps mobiles, build",
+  "priorite": 1
+ },
+ {
+  "handle": "realtheoecom",
+  "followers": 3141,
+  "pct_fr": 94,
+  "posts_7j": 5,
+  "mediane_vues": 3428,
+  "repond_reponses": true,
+  "theme": "SaaS, e-commerce",
+  "priorite": 1
+ },
+ {
+  "handle": "leploutos",
+  "followers": 7537,
+  "pct_fr": 92,
+  "posts_7j": 13,
+  "mediane_vues": 2227,
+  "repond_reponses": true,
+  "theme": "agents IA pour entreprises",
+  "priorite": 1
+ },
+ {
+  "handle": "_smontlouis",
+  "followers": 7285,
+  "pct_fr": 82,
+  "posts_7j": 6,
+  "mediane_vues": 2180,
+  "repond_reponses": true,
+  "theme": "dev React Native, apps",
+  "priorite": 1
+ },
+ {
+  "handle": "0xmaxou",
+  "followers": 1478,
+  "pct_fr": 93,
+  "posts_7j": 6,
+  "mediane_vues": 1967,
+  "repond_reponses": true,
+  "theme": "agents IA, LLM en entreprise",
+  "priorite": 1
+ },
+ {
+  "handle": "powlisher",
+  "followers": 22459,
+  "pct_fr": 95,
+  "posts_7j": 19,
+  "mediane_vues": 22256,
+  "repond_reponses": true,
+  "theme": "design produit, tech, Apple",
+  "priorite": 2
+ },
+ {
+  "handle": "vision_ia",
+  "followers": 21992,
+  "pct_fr": 100,
+  "posts_7j": 5,
+  "mediane_vues": 6830,
+  "repond_reponses": null,
+  "theme": "actu IA, formation IA",
+  "priorite": 2
+ },
+ {
+  "handle": "cocadmin",
+  "followers": 7864,
+  "pct_fr": 100,
+  "posts_7j": 4,
+  "mediane_vues": 3316,
+  "repond_reponses": null,
+  "theme": "sysadmin, sécurité, dev",
+  "priorite": 2
+ },
+ {
+  "handle": "jeanalexandre_b",
+  "followers": 7724,
+  "pct_fr": 100,
+  "posts_7j": 6,
+  "mediane_vues": 2003,
+  "repond_reponses": null,
+  "theme": "IA e-commerce, création",
+  "priorite": 2
+ },
+ {
+  "handle": "CTRBooster75",
+  "followers": 6321,
+  "pct_fr": 90,
+  "posts_7j": 10,
+  "mediane_vues": 1284,
+  "repond_reponses": true,
+  "theme": "SEO, growth, outils web",
+  "priorite": 2
+ },
+ {
+  "handle": "martinturcotte_",
+  "followers": 1879,
+  "pct_fr": 100,
+  "posts_7j": 4,
+  "mediane_vues": 1011,
+  "repond_reponses": true,
+  "theme": "SaaS, métriques, croissance",
+  "priorite": 2
+ },
+ {
+  "handle": "CamilleRoux",
+  "followers": 32560,
+  "pct_fr": 100,
+  "posts_7j": 8,
+  "mediane_vues": 792,
+  "repond_reponses": true,
+  "theme": "formation dev, veille Claude Code",
+  "priorite": 2
+ },
+ {
+  "handle": "ThomaSEOfr",
+  "followers": 2492,
+  "pct_fr": 95,
+  "posts_7j": 19,
+  "mediane_vues": 779,
+  "repond_reponses": true,
+  "theme": "SEO affiliation, IA",
+  "priorite": 2
+ },
+ {
+  "handle": "RosoAI",
+  "followers": 4047,
+  "pct_fr": 91,
+  "posts_7j": 11,
+  "mediane_vues": 612,
+  "repond_reponses": true,
+  "theme": "agents IA, build in public",
+  "priorite": 2
+ },
+ {
+  "handle": "FuturLucide",
+  "followers": 1541,
+  "pct_fr": 91,
+  "posts_7j": 11,
+  "mediane_vues": 600,
+  "repond_reponses": true,
+  "theme": "actu IA, robots, avis",
+  "priorite": 2
+ },
+ {
+  "handle": "im_bulent",
+  "followers": 4391,
+  "pct_fr": 75,
+  "posts_7j": 20,
+  "mediane_vues": 881,
+  "repond_reponses": false,
+  "theme": "business en ligne, projets codés",
+  "priorite": 3
+ },
+ {
+  "handle": "ace_the_agent",
+  "followers": 637,
+  "pct_fr": 100,
+  "posts_7j": 5,
+  "mediane_vues": 669,
+  "repond_reponses": null,
+  "theme": "IA au travail, automatisation",
+  "priorite": 3
+ },
+ {
+  "handle": "Micode",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "benjamincode",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "grafikart_fr",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "devtheory_",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "Gravenilvec",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "JeremyMouzin",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "djiby_sensei",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "MikeCodeur",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "ThibaultHoudon",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "g_beyrouti",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "LeNoobCodeur",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "MehiSalesAI",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "OlivierCroisier",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "LeMutantX",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "benjp009",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "Kuohin",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "Saucisse_dev",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "nico16184",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "jessyseonoob",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "ismael_copy",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "Valentin_cord",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "yougraphoff",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "ToolsOttho",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "zebusinessweb",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "stanverju",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "floweb",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "MBoisgard",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "G_souillard",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "JulienNOCODE",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "Kirako_ai",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ },
+ {
+  "handle": "maxmenkmuller",
+  "followers": null,
+  "pct_fr": null,
+  "posts_7j": null,
+  "mediane_vues": null,
+  "repond_reponses": null,
+  "theme": "à revérifier (ajout 28/10 soir)",
+  "priorite": 3
+ }
+]
