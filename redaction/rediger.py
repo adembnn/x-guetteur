@@ -77,17 +77,17 @@ Texte :
 >>>
 
 # Ce qu'il faut écrire
-Deux réponses différentes, chacune entre 100 et 200 caractères, en français parlé, comme Adem les taperait sur son téléphone.
-- Réponse 1 : rebondit sur un détail précis du post (un nom, un chiffre, une phrase) et apporte un vécu d'Adem SEULEMENT si un fait de la section « Vécu » colle vraiment au sujet. Sinon, une remarque concrète ou un mini-retour d'expérience général qu'Adem peut assumer.
-- Réponse 2 : une autre structure. Par exemple une question précise à l'auteur, qui demande une méthode ou un détail, à laquelle il a envie de répondre (quand l'auteur répond, la réponse fait 7,6 fois plus de vues).
+Deux réactions différentes, comme un pote qui scrolle et tape en 10 secondes sur son téléphone. Une seule phrase chacune, souvent 40 à 120 caractères, minuscules.
+- On réagit AU POST : surprise (« attends il a inventé des faux mails ?? »), petite vanne, avis franc, ou une question toute bête (« à partir de combien c'est gagner sa vie ? »).
+- On ne ramène PAS tout à Adem. Pas de vécu, sauf si le post pose une question dont un fait de la section « Vécu » est la réponse évidente.
+- Interdit : expliquer, faire la leçon, reformuler le post, mettre deux idées, « c'est pour ça que », « le pire c'est que », « tu crois qu'on pourra un jour », « d'après », « c'est pile ce que », « en soi », « X c'est pas le souci, c'est Y ».
 Règles strictes :
-- AUCUN faux vécu : n'invente jamais un projet, un chiffre, un client, un outil utilisé ou une expérience. Seuls les faits de la section « Vécu » existent. Dans le doute, pose une question au lieu d'affirmer.
+- AUCUN faux vécu : n'invente jamais un projet, un chiffre, un client, un outil utilisé ou une expérience.
 - Rien sur Mate, Major Prépa, Square Management.
 - Pas de lien, pas de hashtag, pas d'emoji, pas de tiret cadratin, pas de @ au début.
-- Au plus une question, et jamais une question à deux branches (« A ou B ? »).
-- Jamais de compliment vide (« super post », « totalement d'accord », « très pertinent »).
+- Au plus une question, jamais à deux branches (« A ou B ? »). Jamais de compliment vide.
 - Les deux réponses ne commencent pas par les mêmes mots, ni par les mêmes mots que ces réponses récentes d'Adem : {json.dumps(recent[:8], ensure_ascii=False)}
-- Ton : relis le guide et les vrais textes d'Adem ci-dessous. Minuscules au début OK, « ya », « en vrai », « mdr », « bcp » si ça sonne naturel, sans en mettre partout.
+- Ton : les vrais textes d'Adem ci-dessous. « ya », « en vrai », « mdr », « att », « je capte pas » si ça sonne naturel.
 
 # Guide de rédaction (extraits)
 {contexte_guide()}

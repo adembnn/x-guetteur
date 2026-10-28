@@ -38,6 +38,14 @@ Référence de ton : `reference/vrais-posts.md` (les vrais posts qui ont explos�
 - **Questions préférées : celles qui demandent une méthode ou une astuce** (« c'est quoi la manière la plus efficace de vérifier ce que sortent tes agents ? »), plutôt qu'un chiffre (« combien de temps… »). Les réponses deviennent une liste qu'on enregistre.
 - **Innover sur le fond et sur la forme :** deux posts du même jour ne partagent ni la structure, ni l'angle, ni le type de fin.
 
+## 0 quinquies. Règles mesurées par la veille (29/10, reports/veille-x/mode-emploi.md)
+- Un chiffre en euros vécu (17 % de posts qui explosent contre 6,5 %), un post aéré, qui commence par « je ».
+- Une question seulement en dernière ligne. En première ligne, elle ne change rien.
+- Zéro appel à agir (« commente », « DM-moi », « rejoins ») : 1,6 % d'explosion contre 7,6 %.
+- Pas de fil de plusieurs posts, au plus 1 @mention par post.
+- 9 posts sur 10 sur la tech/IA (X compare au sujet de tes 15 derniers posts).
+- Viser « je copie le lien » et « j'envoie à un pote » : un format « à envoyer à ton pote qui… ».
+
 ## 0 quater. Le test d'Adem (29/10, corrigé le soir même)
 > **Lis d'abord `reference/verdicts-adem.md`, qui prime sur tout ce guide.** Correction : le test « compris en une lecture » ne doit pas tuer les posts valeur sur des inconnus (Adem les veut). Il faut les raconter clairement, en phrases complètes, et pas les retirer.
 - **Les galères d'agent génériques au « tu » : presque toutes rejetées.** Au plus 1 par jour, seulement si elle ressemble à « lundi / mercredi / vendredi ». Pour une réaction, un GIF.
@@ -95,7 +103,7 @@ Référence de ton : `reference/vrais-posts.md` (les vrais posts qui ont explos�
 
 ## 3. Les gros tirages : 1 par créneau de 3 h
 **Structure (mesurée) :** 4 à 8 lignes. **Limite actuelle du compte : 280 caractères maximum** (pas de Premium, constaté le 28/10). Les mesures disent que plus de 280 caractères fait mieux, mais tant qu'Adem n'a pas Premium, on écrit 230 à 280 caractères. Ligne 1 : le fait. Lignes 2 à 5 : le détail vrai et l'enjeu. Dernière ligne : la question qui renvoie le lecteur à sa situation.
-**Objectif :** des réponses et des signets, pas des likes (top 10 % : 3 fois plus de réponses par like).
+**Objectif :** des réponses, des copies de lien et des partages en message privé (poids 5 à 20 dans le code de X), pas des likes ni des signets (le signet n'a aucun poids : reports/veille-x/mode-emploi.md R3).
 
 **Les 4 formes.** Les exemples ci-dessous datent de la v1 et ont été jugés trop formels par Adem : garde la structure, pas le ton. Le ton se règle sur §0 et sur `reference/vrais-posts.md`.
 
@@ -129,9 +137,16 @@ Référence de ton : `reference/vrais-posts.md` (les vrais posts qui ont explos�
 - **Écart :** au moins 45 minutes avec le post précédent.
 
 ## 5. Les réponses (chasseur)
-- **Quand :** sous un post tech/IA FR de moins de 30 minutes qui démarre fort. Dans les 15 minutes, une réponse fait 2 135 vues médianes ; après 8 h, 116.
+**Retour d'Adem du 28/10 au soir, prioritaire sur le reste de cette section : « atroce, faut arrêter de tout ramener à moi », « AI slop, parle comme un humain ».**
+- Une réponse = une réaction de pote sous le post. Court : souvent 40 à 120 caractères, une seule phrase, minuscules.
+- **On ne ramène pas tout à Adem.** Le vécu (`vecu/`) seulement si quelqu'un pose une question où c'est LA réponse évidente, pas plus d'une réponse sur 5.
+- On réagit au post : surprise (« attends il a inventé des faux mails ?? »), petite vanne, avis franc, ou une question toute bête (« à partir de combien c'est gagner sa vie ? », sa vraie réponse qui a le mieux marché).
+- **Interdit (tics repérés par Adem) :** « c'est pour ça que », « le pire c'est que », « tu crois qu'on pourra un jour », « d'après les règles », « c'est pile ce que », « en soi », « X c'est pas le souci, c'est Y », expliquer ou faire la leçon, reformuler le post, deux idées dans la même réponse.
+- Test : est-ce qu'Adem le taperait en 10 secondes sur son téléphone en scrollant ? Si non, on jette.
+
+- **Quand :** sous un post tech/IA FR de moins de 15 minutes qui démarre fort. La vitesse et le rang comptent 19 fois plus que le texte (mode-emploi R10). Dans les 15 minutes, une réponse fait 2 135 vues médianes ; après 8 h, 116.
 - **Sous qui :** des auteurs de 1 000 à 100 000 abonnés qui répondent à leurs réponses. Quand l'auteur répond, c'est 7,6 fois plus de vues.
-- **Forme :** 100 à 200 caractères. Un détail repris du post (nom, chiffre, phrase), plus un fait ou un vécu d'Adem, plus éventuellement une question précise à l'auteur. Pas de lien, pas d'autopromotion, en français.
+- **Forme :** 100 à 200+ caractères. Un détail repris du post, plus un vécu ou un chiffre. **Pas de question finale** (×0,80, mode-emploi R11). Pas de lien, pas d'autopromotion, en français.
 - **Interdits :** « Super point ! », « Totalement d'accord », deux réponses de même structure dans l'heure, deux messages d'Adem de suite dans un même fil.
 - **Exemple** sous un post sur le vibe coding :
   > On a sorti un jeu 3D jouable en 9 h de hackathon sans être devs, mais tout le temps gagné au code, on l'a passé à relire les agents. Tu relis tout, toi, ou tu fais confiance aux tests ?

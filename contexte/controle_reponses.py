@@ -29,7 +29,7 @@ NOIRE_REPONSES = [r"super (post|point|thread|partage)", r"totalement d'accord", 
     r"merci pour (le|ce) partage", r"\bexcellent", r"\bpertinent", r"\bbravo\b", r"\bincroyable\b", r"\bfascinant", r"\bintéressant(e)? (post|point|analyse)",
     r"je suis d'accord", r"\bgreat\b", r"\bawesome\b", r"\bpassionnant", r"\bimpressionnant", r"(tu|vous) as (totalement|complètement) raison",
     r"^(effectivement|absolument|exactement)\b", r"ça (résonne|me parle) (tellement|beaucoup)", r"\bclairement\b.*\bclairement\b",
-    r"en tant qu", r"\bn'hésite(z)? pas\b", r"\bdm\b", r"\bmp\b", r"lien en bio", r"abonne", r"\bfollow\b"]
+    r"en tant qu", r"c.est pour ça qu", r"le pire c.est que", r"tu crois qu.on pourra", r"d.après les règles", r"c.est pile ce qu", r"\ben soi\b", r"c.est pas le souci", r"\bun jour laisser\b", r"\bn'hésite(z)? pas\b", r"\b(en|par|viens en|écris-moi en) (dm|mp)\b", r"lien en bio", r"abonne", r"\bfollow\b"]
 
 INTERDITS = [r"\bmate\b", r"major ?pr[ée]pa", r"square management", r"\bsquare\b"]
 
@@ -62,10 +62,9 @@ def controle(rep, post_text, recent, autres):
     pb, avert = [], []
     r = rep.strip()
     n = len(r)
-    if n < 60: pb.append(f"trop court ({n} car., viser 100-200)")
-    elif n < 100: avert.append(f"un peu court ({n} car.)")
-    if n > 240: pb.append(f"trop long ({n} car., max 240)")
-    elif n > 200: avert.append(f"un peu long ({n} car.)")
+    if n < 25: pb.append(f"trop court ({n} car.)")
+    if n > 200: pb.append(f"trop long ({n} car., une réaction de pote tient en 40-120)")
+    elif n > 140: avert.append(f"un peu long ({n} car.)")
     if "—" in r or " – " in r: pb.append("tiret cadratin")
     if LIEN.search(r): pb.append("lien")
     if "#" in r: pb.append("hashtag")
@@ -81,7 +80,7 @@ def controle(rep, post_text, recent, autres):
     communs = mots_forts(r) & mots_forts(post_text)
     chiffres_post = set(re.findall(r"\d+", post_text))
     if not communs and not (set(re.findall(r"\d+", r)) & chiffres_post):
-        pb.append("ne reprend aucun détail du post")
+        avert.append("ne reprend aucun mot du post (OK si c'est une réaction)")
     # Vécu : chiffre à la 1re personne qui n'est pas dans vecu/.
     if re.search(r"\b(j'ai|on a|j'avais|on avait|moi|perso|chez moi|je)\b", norm(r)):
         for c in re.findall(r"\d+", r):
