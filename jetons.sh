@@ -27,6 +27,6 @@ echo "   Permissions → Repository permissions → Actions : Read and write. Pu
 open "https://github.com/settings/personal-access-tokens/new" 2>/dev/null || true
 echo "   Colle le jeton GitHub, puis appuie 2 fois sur Entrée :"
 GT=$(lire)
-printf %s "$GT" | npx --prefix worker wrangler secret put GH_TOKEN >/dev/null && echo "   jeton GitHub enregistré"; unset GT
+printf %s "$GT" | (cd worker && npx wrangler secret put GH_TOKEN) >/dev/null && echo "   jeton GitHub enregistré"; unset GT
 clear
 echo "Fini. Dis « jetons ok » à Claude dans le chat."
