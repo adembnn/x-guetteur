@@ -9,6 +9,10 @@ W="npx --prefix $D/worker wrangler"
 etape() { printf "\n\033[1m== %s\033[0m\n" "$1"; }
 pause() { read -r -p "   (Entrée quand c'est fait) " _; }
 
+etape "0/7 Dépôt GitHub privé $REPO (contient le guide, ton vécu et le code du rédacteur)"
+if gh repo view "$REPO" >/dev/null 2>&1; then echo "   existe déjà"; git push -q origin main 2>/dev/null || true
+else gh repo create "$REPO" --private --source "$D" --push && echo "   créé (privé) et envoyé"; fi
+
 etape "1/7 Connexion à Cloudflare (une page s'ouvre : crée ton compte gratuit ou connecte-toi, puis Autoriser)"
 cd "$D/worker"
 $W whoami 2>/dev/null | grep -q "logged in" || $W login
