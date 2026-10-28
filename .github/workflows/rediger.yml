@@ -1,0 +1,46 @@
+name: rediger
+# Lancé à la demande par le guetteur Cloudflare quand un post chaud est repéré.
+on:
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "id du post X"
+        required: true
+      alert_id:
+        description: "id de l'alerte dans le guetteur"
+        required: true
+
+concurrency:
+  group: rediger-${{ inputs.post_id }}
+  cancel-in-progress: false
+
+jobs:
+  rediger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Installer Claude Code (mis en cache)
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-claude-code-v1
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Rédiger et envoyer les brouillons
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          WORKER_URL: ${{ secrets.WORKER_URL }}
+          WORKER_KEY: ${{ secrets.WORKER_KEY }}
+          MODELE: sonnet
+        run: python3 redaction/rediger.py "${{ inputs.post_id }}" "${{ inputs.alert_id }}"
+      - name: Prévenir le guetteur en cas d'échec
+        if: failure()
+        env:
+          WORKER_URL: ${{ secrets.WORKER_URL }}
+          WORKER_KEY: ${{ secrets.WORKER_KEY }}
+        run: |
+          curl -s -X POST "$WORKER_URL/drafts" -H "Content-Type: application/json" -H "X-Key: $WORKER_KEY" \
+            -d '{"alert_id": ${{ inputs.alert_id }}, "post_id": "${{ inputs.post_id }}", "replies": [], "erreur": "rédaction en échec"}'

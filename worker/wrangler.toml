@@ -1,0 +1,21 @@
+name = "guetteur-x"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Chaque minute (UTC). Les heures de veille (8 h-22 h, heure de Paris) sont gérées dans le code.
+[triggers]
+crons = ["* * * * *"]
+
+[vars]
+GH_REPO = "adembnn/x-guetteur"
+ADEM = "ademmbnn"
+LOT = "12"            # comptes regardés par minute
+MAX_ALERTES = "30"    # alertes par jour
+MAX_POSTEES = "25"    # réponses publiées par jour (plafond dur)
+HEURE_DEBUT = "8"
+HEURE_FIN = "22"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "guetteur-x"
+database_id = "A_REMPLIR"
