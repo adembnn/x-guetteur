@@ -12,8 +12,8 @@ ADEM = "ademmbnn"
 LOT = "40"            # comptes lus au plus par ronde (2 rondes par minute)
 MAX_ALERTES = "30"    # alertes par jour
 MAX_POSTEES = "25"    # réponses publiées par jour (plafond dur)
-HEURE_DEBUT = "8"
-HEURE_FIN = "22"
+HEURE_DEBUT = "7"
+HEURE_FIN = "27"   # 27 = 3 h du matin
 
 [[d1_databases]]
 binding = "DB"

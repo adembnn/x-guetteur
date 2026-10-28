@@ -300,7 +300,9 @@ export default {
   async scheduled(_evt, env, ctx) {
     const h = heureParis();
     const pause = (await getCfg(env, "pause", "0")) === "1";
-    if (!pause && h >= Number(env.HEURE_DEBUT || 8) && h < Number(env.HEURE_FIN || 22)) ctx.waitUntil(ronde(env));
+    const deb = Number(env.HEURE_DEBUT || 7), fin = Number(env.HEURE_FIN || 25);
+    const ouvert = h >= deb || (fin > 24 && h < fin - 24);
+    if (!pause && ouvert && h < Math.min(fin, 24) + (fin > 24 ? 1 : 0) * 24) ctx.waitUntil(ronde(env));
     ctx.waitUntil(releves(env));
   },
 };
