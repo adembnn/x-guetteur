@@ -47,7 +47,9 @@ async function tg(env, methode, corps) {
 async function dire(env, texte, extra = {}) {
   const chat = await getCfg(env, "chat_id");
   if (!chat) return null;
-  return tg(env, "sendMessage", { chat_id: chat, text: texte, parse_mode: "HTML", disable_web_page_preview: true, ...extra });
+  const r = await tg(env, "sendMessage", { chat_id: chat, text: texte, parse_mode: "HTML", disable_web_page_preview: true, ...extra });
+  if (!r?.ok) await setCfg(env, "derniere_erreur_tg", JSON.stringify(r).slice(0, 300));
+  return r;
 }
 
 // ---------- 1-3. la ronde ----------
@@ -288,7 +290,7 @@ async function api(req, env) {
     return Response.json({ ok: await lancerRedaction(env, p.id, r.id), alert_id: r.id });
   }
   if (url.pathname === "/bilan") return new Response(await bilan(env));
-  if (url.pathname === "/sante") return Response.json({ chat: !!(await getCfg(env, "chat_id")), pause: await getCfg(env, "pause", "0"), erreur_gh: await getCfg(env, "derniere_erreur_gh"), cibles: (await env.DB.prepare("SELECT COUNT(*) n FROM cibles WHERE actif=1").first()).n });
+  if (url.pathname === "/sante") return Response.json({ chat: !!(await getCfg(env, "chat_id")), pause: await getCfg(env, "pause", "0"), erreur_gh: await getCfg(env, "derniere_erreur_gh"), erreur_tg: await getCfg(env, "derniere_erreur_tg"), cibles: (await env.DB.prepare("SELECT COUNT(*) n FROM cibles WHERE actif=1").first()).n });
   return new Response("guetteur-x", { status: 200 });
 }
 

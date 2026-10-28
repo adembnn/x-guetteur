@@ -114,7 +114,7 @@ def appeler_claude(prompt):
     with open(chemin, encoding="utf-8") as entree:
         r = subprocess.run(cmd, stdin=entree, capture_output=True, text=True, timeout=180)
     if r.returncode != 0:
-        raise RuntimeError(f"claude -p a échoué : {r.stderr[-500:]}")
+        raise RuntimeError(f"claude -p a échoué (code {r.returncode}) : stderr={r.stderr[-400:]!r} stdout={r.stdout[-400:]!r}")
     m = re.search(r"\{.*\}", r.stdout, re.S)
     if not m:
         raise RuntimeError(f"pas de JSON dans la réponse : {r.stdout[:300]}")
