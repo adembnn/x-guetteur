@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT);
-CREATE TABLE IF NOT EXISTS cibles (handle TEXT PRIMARY KEY, priorite INTEGER DEFAULT 2, actif INTEGER DEFAULT 1);
+CREATE TABLE IF NOT EXISTS cibles (handle TEXT PRIMARY KEY, priorite INTEGER DEFAULT 2, actif INTEGER DEFAULT 1, posts_jour REAL DEFAULT 0, prochain INTEGER DEFAULT 0);
 -- Posts frais (moins de 20 min) vus par le guetteur : sert à régler le seuil « qui démarre ».
 CREATE TABLE IF NOT EXISTS vus (id TEXT PRIMARY KEY, handle TEXT, created INTEGER, vu_a INTEGER, age_min REAL,
   views INTEGER, likes INTEGER, replies INTEGER, followers INTEGER, chaud INTEGER DEFAULT 0);

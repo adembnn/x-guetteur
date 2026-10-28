@@ -63,16 +63,17 @@ function estChaud(p, ageMin, followers) {
 }
 
 async function ronde(env) {
-  const cibles = (await env.DB.prepare("SELECT handle, priorite FROM cibles WHERE actif=1 ORDER BY priorite, handle").all()).results;
-  if (!cibles.length) return { regardes: 0 };
-  // Les comptes de priorité 1 passent deux fois par tour.
-  const tour = cibles.flatMap((c) => (c.priorite === 1 ? [c.handle, c.handle] : [c.handle]));
-  const lot = Number(env.LOT || 12);
-  const curseur = Number(await getCfg(env, "curseur", 0)) % tour.length;
-  const choix = [...new Set(Array.from({ length: Math.min(lot, tour.length) }, (_, i) => tour[(curseur + i) % tour.length]))];
-  await setCfg(env, "curseur", (curseur + lot) % tour.length);
+  // Chaque compte a sa prochaine visite : 3 min s'il poste beaucoup, 4 min moyen, 6 min au plus.
+  const lot = Number(env.LOT || 40);
+  const t0 = now();
+  const dus = (await env.DB.prepare("SELECT handle, posts_jour FROM cibles WHERE actif=1 AND COALESCE(prochain,0) <= ? ORDER BY COALESCE(prochain,0) LIMIT ?").bind(t0, lot).all()).results;
+  if (!dus.length) return { regardes: 0 };
+  const pas = (pj) => (pj >= 2 ? 3 : pj >= 0.7 ? 4 : 6) * MIN;
+  // On « réserve » les comptes avant de les lire, pour que deux rondes en parallèle ne lisent pas les mêmes.
+  await env.DB.batch(dus.map((c) => env.DB.prepare("UPDATE cibles SET prochain=? WHERE handle=?").bind(t0 + pas(c.posts_jour || 0) + Math.floor(Math.random() * 20000), c.handle)));
+  const choix = dus.map((c) => c.handle);
 
-  const reponses = await Promise.all(choix.map((h) => fx(`/2/profile/${h}/statuses?count=5`).catch(() => null)));
+  const reponses = await Promise.all(choix.map((h) => fx(`/2/profile/${h}/statuses?count=3`).catch(() => null)));
   const chauds = [];
   const ecritures = [];
   for (const d of reponses) {
@@ -272,7 +273,7 @@ async function api(req, env) {
   if (url.pathname === "/cibles" && req.method === "POST") {
     const liste = await req.json();
     const st = [env.DB.prepare("UPDATE cibles SET actif=0")].concat(liste.map((c) =>
-      env.DB.prepare("INSERT INTO cibles(handle,priorite,actif) VALUES(?,?,1) ON CONFLICT(handle) DO UPDATE SET priorite=excluded.priorite, actif=1").bind(c.handle, c.priorite || 2)));
+      env.DB.prepare("INSERT INTO cibles(handle,priorite,actif,posts_jour) VALUES(?,?,1,?) ON CONFLICT(handle) DO UPDATE SET priorite=excluded.priorite, posts_jour=excluded.posts_jour, actif=1").bind(c.handle, c.priorite || 2, c.posts_jour || 0)));
     await env.DB.batch(st);
     return Response.json({ ok: true, n: liste.length });
   }
@@ -290,7 +291,7 @@ async function api(req, env) {
     return Response.json({ ok: await lancerRedaction(env, p.id, r.id), alert_id: r.id });
   }
   if (url.pathname === "/bilan") return new Response(await bilan(env));
-  if (url.pathname === "/sante") return Response.json({ chat: !!(await getCfg(env, "chat_id")), pause: await getCfg(env, "pause", "0"), erreur_gh: await getCfg(env, "derniere_erreur_gh"), erreur_tg: await getCfg(env, "derniere_erreur_tg"), cibles: (await env.DB.prepare("SELECT COUNT(*) n FROM cibles WHERE actif=1").first()).n });
+  if (url.pathname === "/sante") return Response.json({ chat: !!(await getCfg(env, "chat_id")), pause: await getCfg(env, "pause", "0"), erreur_gh: await getCfg(env, "derniere_erreur_gh"), erreur_tg: await getCfg(env, "derniere_erreur_tg"), cibles: (await env.DB.prepare("SELECT COUNT(*) n FROM cibles WHERE actif=1").first()).n, retard_max_min: Math.round(((now() - ((await env.DB.prepare("SELECT MIN(COALESCE(prochain,0)) m FROM cibles WHERE actif=1").first()).m || now())) / MIN) * 10) / 10 });
   return new Response("guetteur-x", { status: 200 });
 }
 
