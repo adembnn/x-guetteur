@@ -7,6 +7,26 @@ Sources :
 - `reports/etude/code-slop.md` et `reports/etude/code-reponses.md` ;
 - les 45 textes d'Adem sur X (26-28/10).
 
+## 00. La voix du récit (29/10, d'après 120 récits très lus : reports/voix/recits-lus.md) — PRIME sur les sections 0 à 4
+Adem : « encore trop AI slop », « quand tu essaies d'être drôle ça marche pas », « regarde les gens qui sont lus et appréciés ».
+
+**Ce que font les récits qui marchent (mesuré sur 80 FR / 40 EN) :**
+- **On commence au milieu d'un moment.** « Il y a 2 semaines, un ami me met en relation avec… » (LiorNsnd), « J'ai mon ancien employeur qui m'a appelé » (profpicsou), « Je viens de vibecoder un simulateur de combat aérien » (RayaneRachid_). Jamais de mise en contexte, jamais de thèse en ouverture. 50 % commencent par je / mon.
+- **Une ligne = une étape de l'histoire.** 3 à 10 mots, souvent sans « donc », « ainsi », « et c'est là que ». L'histoire avance, elle ne s'explique pas.
+- **Le passé composé** (85 %) : il s'est passé quelque chose, on le raconte. Pas de présent de vérité générale.
+- **Un chiffre remplace l'adjectif** (86 %) : 2 jours, 39 €/mois, 124 dossiers, 52 ans. Jamais « énorme », « incroyable » sans chiffre derrière.
+- **Des objets réels et nommés** : HelloFresh, Auchan, WhatsApp, Notion, Claude Code, la télé Sony. Un nom propre vaut dix concepts.
+- **Le dialogue rapporté** : « Moi : on peut faire plus simple / Claude : Si si ! C'est LA SEULE solution » (ace_the_agent). C'est là qu'est l'humour : dans la situation, jamais dans une blague écrite.
+- **On montre** : « le résultat est sur la capture ». Un récit de build sans capture perd la moitié de sa preuve.
+- **La chute est courte et plate** : elle résume ou renverse (« Il va vendre les licences pour moi. Sans le vouloir, il est devenu mon associé. »). Seuls 5 % finissent par une question : **un récit ne finit pas par une question.** Les questions restent aux petits posts.
+- **L'émotion est dite simplement, une fois** : « j'ai aucun mot », « je pète un plomb », « je suis trop content mdr ». Pas d'exclamation en série.
+
+**L'humour (mesuré chez les comptes < 5 000 abonnés) :** les récits avec marque d'humour (mdr, 😂) font un peu MOINS bien (×1,04 contre ×1,15). Règle : **zéro blague, zéro jeu de mots, zéro chute « punchline ».** Si c'est drôle, c'est parce que ce qui s'est passé est drôle (le widget où tes vrais poissons nagent).
+
+**Le test anti-slop, phrase par phrase :** une IA écrit des phrases équilibrées, des oppositions propres (« pas X, mais Y »), des morales, des formules qui sonnent bien. Les gens lus écrivent des phrases qui avancent, un peu bancales, avec des détails que personne n'inventerait (« avec ses propres tokens », « les locaux fermés la nuit »). Pour chaque phrase : est-ce qu'un mec de 23 ans la dirait à voix haute à un pote ? Sinon, on la réécrit plus bête et plus précise.
+
+**Limite de longueur :** ces récits font 494 caractères en médiane et 7 lignes. Le compte est à 280 (pas de Premium) : on garde 4 à 5 lignes, on coupe la mise en contexte d'abord, jamais le chiffre ni le détail vrai.
+
 ## 0. Règle n°1 : le ton (ajoutée le 28/10, après le retour d'Adem : « AI slop atroce, bcp trop formel, décoince toi »)
 **Test unique : est-ce qu'Adem le dirait à voix haute à un pote dev, au bar ?** Si non, on jette et on réécrit de zéro.
 Référence de ton : `reference/vrais-posts.md` (les vrais posts qui ont explosé). Lis-la avant chaque lot.
