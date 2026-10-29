@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS alertes (id INTEGER PRIMARY KEY AUTOINCREMENT, post_i
   texte_post TEXT, post_created INTEGER, age_min REAL, views INTEGER, likes INTEGER, replies INTEGER,
   cree_a INTEGER, envoye_a INTEGER, brouillons TEXT, pourquoi TEXT, statut TEXT, tg_msg INTEGER,
   brouillon_choisi INTEGER, poste_a INTEGER, reply_id TEXT, reply_texte TEXT,
-  vues_24h INTEGER, likes_24h INTEGER, reponses_24h INTEGER, auteur_a_repondu INTEGER, releve_a INTEGER, essais_releve INTEGER DEFAULT 0);
+  vues_24h INTEGER, likes_24h INTEGER, reponses_24h INTEGER, auteur_a_repondu INTEGER, releve_a INTEGER, essais_releve INTEGER DEFAULT 0, suivi INTEGER);
 CREATE INDEX IF NOT EXISTS alertes_statut ON alertes(statut, cree_a);

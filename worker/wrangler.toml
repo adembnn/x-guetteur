@@ -10,10 +10,12 @@ crons = ["* * * * *", "*/1 * * * *"]
 GH_REPO = "adembnn/x-guetteur"
 ADEM = "ademmbnn"
 LOT = "40"            # comptes lus au plus par ronde (2 rondes par minute)
-MAX_ALERTES = "30"    # alertes par jour
+MAX_ALERTES = "100"    # alertes par jour
 MAX_POSTEES = "25"    # réponses publiées par jour (plafond dur)
 HEURE_DEBUT = "7"
 HEURE_FIN = "27"   # 27 = 3 h du matin
+SEUIL_LIEN = "1500"     # en dessous : mode « lien » (réponse + follow)
+MAX_ABONNES = "10000"   # au-dessus : ignoré
 
 [[d1_databases]]
 binding = "DB"

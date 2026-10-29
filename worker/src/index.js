@@ -55,11 +55,19 @@ async function dire(env, texte, extra = {}) {
 // ---------- 1-3. la ronde ----------
 // « Démarre » : moins de 15 min, et déjà de l'élan. Seuils de départ, réglés ensuite par la rétro avec la table `vus`.
 const THEME = /\b(ia|ai|gpt|chatgpt|claude|gemini|grok|mistral|llm|agents?|agentique|openai|anthropic|google|apple|meta|nvidia|code|coder|codeur|dev|développeur|saas|app|startup|no-?code|n8n|cursor|automatis\w*|prompt|modèles?|api|bot|tech|build|produit|mvp|hackathon|vibe|seo|data|robot\w*|fable|astra|genie|carbon|macbook|iphone|logiciel|outil\w*)\b/i;
-function estChaud(p, ageMin, followers) {
-  if (ageMin > 15 || followers < 300 || !THEME.test(p.text || "")) return false;
+// Deux modes (Adem, 29/10) :
+// - « lien » (moins de SEUIL_LIEN abonnés) : on répond ET on suit, pour lancer une discussion et un follow-back.
+//   Pas besoin que le post décolle : on veut arriver parmi les premiers, quand il a encore 0 à 4 réponses.
+// - « visibilité » (SEUIL_LIEN à MAX_ABONNES) : on répond sans suivre, pour les impressions. Le post doit démarrer.
+// Au-delà de MAX_ABONNES : ignoré.
+const mode = (env, followers) => (followers < Number(env.SEUIL_LIEN || 1500) ? "lien" : "visibilite");
+function estChaud(env, p, ageMin, followers) {
+  if (followers > Number(env.MAX_ABONNES || 10000) || !THEME.test(p.text || "")) return false;
   const vues = p.views || 0, likes = p.likes || 0, rep = p.replies || 0;
+  if (mode(env, followers) === "lien") return ageMin <= 15 && rep <= 4 && (p.text || "").length >= 30;
+  if (ageMin > 25) return false;
   const vitesse = vues / Math.max(ageMin, 1);
-  return (vitesse >= 15 && vues >= 40) || likes >= 3 || rep >= 2;
+  return (vitesse >= 6 && vues >= 25) || likes >= 2 || rep >= 1;
 }
 
 async function ronde(env) {
@@ -82,7 +90,7 @@ async function ronde(env) {
       const age = (now() - p.created_timestamp * 1000) / MIN;
       if (age < 0 || age > 20) continue;
       const followers = p.author?.followers || 0;
-      const chaud = estChaud(p, age, followers);
+      const chaud = estChaud(env, p, age, followers);
       ecritures.push(env.DB.prepare(
         "INSERT INTO vus(id,handle,created,vu_a,age_min,views,likes,replies,followers,chaud) VALUES(?,?,?,?,?,?,?,?,?,?) " +
         "ON CONFLICT(id) DO UPDATE SET vu_a=excluded.vu_a, age_min=excluded.age_min, views=excluded.views, likes=excluded.likes, replies=excluded.replies, chaud=MAX(chaud, excluded.chaud)"
@@ -119,7 +127,7 @@ async function lancerRedaction(env, postId, alertId) {
     headers: { ...UA, Accept: "application/vnd.github+json", Authorization: `Bearer ${env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" },
     body: JSON.stringify({ ref: "main", inputs: { post_id: String(postId), alert_id: String(alertId) } }),
   });
-  if (r.status !== 204) await setCfg(env, "derniere_erreur_gh", `${r.status} ${(await r.text()).slice(0, 300)}`);
+  await setCfg(env, "derniere_erreur_gh", r.status === 204 ? "" : `${r.status} ${(await r.text()).slice(0, 300)}`);
   return r.status === 204;
 }
 
@@ -129,7 +137,9 @@ async function envoyerAlerte(env, alertId, replies, note = "") {
   if (!a) return;
   const age = Math.round((now() - a.post_created) / MIN);
   const lien = `https://x.com/${a.handle}/status/${a.post_id}`;
-  let t = `<b>@${esc(a.handle)}</b> · ${age} min · ${k(a.views)} vues · ${k(a.followers)} abonnés\n`;
+  const lienMode = mode(env, a.followers || 0) === "lien";
+  let t = lienMode ? "🤝 <b>LIEN</b> · réponds, je le suis ensuite\n" : "👀 <b>VISIBILITÉ</b> · réponds, pas de follow\n";
+  t += `<b>@${esc(a.handle)}</b> · ${age} min · ${k(a.views)} vues · ${k(a.followers)} abonnés\n`;
   t += `<i>${esc((a.texte_post || "").slice(0, 280))}</i>\n`;
   if (note) t += `\n⚠️ ${esc(note)}\n`;
   replies.forEach((r, i) => { t += `\n<b>${i + 1}.</b> ${esc(r)}\n<code>${r.length} car.</code>\n`; });
@@ -276,6 +286,16 @@ async function api(req, env) {
       env.DB.prepare("INSERT INTO cibles(handle,priorite,actif,posts_jour) VALUES(?,?,1,?) ON CONFLICT(handle) DO UPDATE SET priorite=excluded.priorite, posts_jour=excluded.posts_jour, actif=1").bind(c.handle, c.priorite || 2, c.posts_jour || 0)));
     await env.DB.batch(st);
     return Response.json({ ok: true, n: liste.length });
+  }
+  if (url.pathname === "/a_suivre") {
+    // Comptes « lien » auxquels Adem a répondu et pas encore suivis. Le suiveur les suit en priorité, puis POST pour les marquer.
+    if (req.method === "POST") {
+      const { handles = [] } = await req.json();
+      if (handles.length) await env.DB.batch(handles.map((h) => env.DB.prepare("UPDATE alertes SET suivi=? WHERE handle=? AND suivi IS NULL").bind(now(), h)));
+      return Response.json({ ok: true, n: handles.length });
+    }
+    const r = (await env.DB.prepare("SELECT DISTINCT handle FROM alertes WHERE (poste_a IS NOT NULL OR reply_id IS NOT NULL) AND followers < ? AND suivi IS NULL").bind(Number(env.SEUIL_LIEN || 1500)).all()).results;
+    return Response.json({ handles: r.map((x) => x.handle) });
   }
   if (url.pathname === "/ronde" && req.method === "POST") return Response.json(await ronde(env)); // essai manuel
   if (url.pathname === "/essai" && req.method === "POST") {
